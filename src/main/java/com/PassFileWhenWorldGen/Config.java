@@ -1,3 +1,5 @@
+package com.PassFileWhenWorldGen;
+
 import javax.print.attribute.standard.PrinterIsAcceptingJobs;
 
 public class Config {

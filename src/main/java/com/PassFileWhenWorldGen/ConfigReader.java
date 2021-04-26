@@ -1,3 +1,5 @@
+package com.PassFileWhenWorldGen;
+
 import java.io.*;
 import java.util.LinkedList;
 
