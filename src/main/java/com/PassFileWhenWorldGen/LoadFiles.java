@@ -1,7 +1,6 @@
 package com.PassFileWhenWorldGen;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.LinkedList;
 
 public class LoadFiles {
@@ -25,7 +24,19 @@ public class LoadFiles {
             }
             root += "/";
         }
-        file = new File(path);
-        file.createNewFile();
+        this.copy(roots[roots.length - 1], path);
+    }
+
+    public void copy(String fileName ,String path) throws IOException {
+        File inputFile = new File("PathCartellaconfig" + "/" + ConfigFolder.CONFIG_FILE_FOLDER + "/" + fileName);
+        File outputFile = new File("WorldPath" + "/" + path);
+        InputStream finput = new BufferedInputStream(new FileInputStream(inputFile));
+        OutputStream foutput = new BufferedOutputStream( new FileOutputStream(outputFile));
+        byte[] buffer = new byte[1024 * 500];
+        int bytes_letti = 0;
+        while((bytes_letti = finput.read(buffer)) > 0)
+            foutput.write(buffer, 0, bytes_letti);
+        finput.close();
+        foutput.close();
     }
 }
